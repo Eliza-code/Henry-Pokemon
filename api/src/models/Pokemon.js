@@ -6,19 +6,19 @@ module.exports = (sequelize) => {
   sequelize.define('pokemon', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     id: {
       type: DataTypes.UUID,
-     // defaultValue: Sequelize.UUIDV4,
-      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+      allownull: false,
       primaryKey: true
     },
-    life: {
+    hp: { //life
       type : DataTypes.INTEGER,
       allowNull: true
     },
-    strength: {
+    attack: { // fuerza
       type : DataTypes.INTEGER,
       allowNull: true
     },
@@ -30,13 +30,23 @@ module.exports = (sequelize) => {
       type : DataTypes.INTEGER,
       allowNull: true
     },
-    heigth: {
+    height: {
       type : DataTypes.INTEGER,
       allowNull: true
     },
-    weigth : {
+    weight : {
       type : DataTypes.INTEGER,
       allowNull: true
+    },
+    image: {
+      type:DataTypes.STRING,
+      allowNull: true,
+      //default value 
+    },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      defaultValue : true,
+      allowNull: false,
     }
-  });
+  }, {timestamps : false});
 };
